@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-plasma-dev-191620-authRole",
+            "UnauthRoleArn": "arn:aws:iam::542904664986:role/amplify-plasma-dev-191620-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::542904664986:role/amplify-plasma-dev-191620-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-plasma-dev-191620-deployment",
+            "UnauthRoleName": "amplify-plasma-dev-191620-unauthRole",
+            "StackName": "amplify-plasma-dev-191620",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:542904664986:stack/amplify-plasma-dev-191620/1529baa0-bad8-11ea-9489-029a9b5a8602",
+            "AmplifyAppId": "d3s05pdlp3o73s"
+        },
+        "categories": {
+            "auth": {
+                "plasmaa2470191": {}
+            }
+        }
+    }
+}
