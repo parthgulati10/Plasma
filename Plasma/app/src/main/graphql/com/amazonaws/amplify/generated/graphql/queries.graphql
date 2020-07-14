@@ -1,0 +1,65 @@
+# this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    name
+    email
+    phone
+    address
+    myBloodGrp {
+      id
+      bloodGrp
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      email
+      phone
+      address
+      myBloodGrp {
+        id
+        bloodGrp
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetBloodGroup($id: ID!) {
+  getBloodGroup(id: $id) {
+    id
+    bloodGrp
+    createdAt
+    updatedAt
+  }
+}
+query ListBloodGroups(
+  $filter: ModelBloodGroupFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listBloodGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      bloodGrp
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}

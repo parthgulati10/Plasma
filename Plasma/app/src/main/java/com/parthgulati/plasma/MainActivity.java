@@ -12,11 +12,22 @@ import android.widget.Toast;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.BloodGroup;
 
 public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
-
+    public void fun(){
+        Intent intent = new Intent(getApplicationContext(), BloodGroupActivity.class);
+        startActivity(intent);
+    }
+    public void fun2(){
+        Log.i("INFO", "Incorrect Credentials");
+    }
+    public void showToast(final String toast)
+    {
+        runOnUiThread(() -> Toast.makeText(MainActivity.this, toast, Toast.LENGTH_SHORT).show());
+    }
     public void SignIn(View view){
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
@@ -24,18 +35,19 @@ public class MainActivity extends AppCompatActivity {
         Amplify.Auth.signIn(
                 username.getText().toString(),
                 password.getText().toString(),
-                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                error -> Log.e("AuthQuickstart", error.toString())
+                result -> fun(),
+                error -> showToast("Incorrect Credentials")
         );
-        Intent intent = new Intent(getApplicationContext(), DonorsActivity.class);
 
-        Amplify.Auth.fetchAuthSession(
-                result-> startActivity(intent),
-                error-> Toast.makeText(this, "Incorrect Credentials", Toast.LENGTH_SHORT).show()
-        );
+
+
     }
     public void SignUp(View view){
         Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
+    }
+    public void resetPassword(View view){
+        Intent intent = new Intent(getApplicationContext(), PasswordActivity.class);
         startActivity(intent);
     }
     @Override
@@ -62,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
 //                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
 //                error -> Log.e("AuthQuickstart", error.toString())
 //        );
-        Amplify.Auth.signOut(
-                () -> Log.i("AuthQuickstart", "Signed out successfully"),
-                error -> Log.e("AuthQuickstart", error.toString())
-        );
+
     }
 }

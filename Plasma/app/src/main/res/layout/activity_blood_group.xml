@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DonorsActivity">
+    tools:context=".BloodGroupActivity">
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="308dp"
-        android:layout_height="471dp"
+        android:layout_width="297dp"
+        android:layout_height="498dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

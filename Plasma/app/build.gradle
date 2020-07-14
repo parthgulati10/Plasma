@@ -40,6 +40,8 @@ dependencies {
 
     implementation 'com.amplifyframework:core:1.0.0'
     implementation 'com.amplifyframework:aws-auth-cognito:1.0.0'
+    implementation 'com.amplifyframework:core:1.0.0'
+    implementation 'com.amplifyframework:aws-api:1.0.0'
 
 
 }
