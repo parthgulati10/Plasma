@@ -1,0 +1,21 @@
+type Donor @model {
+  id: ID!
+  name: String!
+  email: String!
+  bloodGroup: BloodGroupTypes!
+  phoneNo:String!
+  address:String
+
+}
+
+enum BloodGroupTypes{
+  APlus
+  ANegative
+  BPlus
+  BNegative
+  ABPlus
+  ABNegative
+  OPlus
+  ONegative
+}
+
