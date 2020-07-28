@@ -1,4 +1,11 @@
 *.iml
+/*
+!/app/*
+/app/src/*
+!/app/src/main/graphql/com/amazonaws/amplify/generated/graphql/
+!/app/src/main/java/com/parthgulati/plasma/
+
+
 .gradle
 /local.properties
 /.idea/caches
