@@ -1,10 +1,4 @@
 *.iml
-*
-!*/
-!/app/*
-/app/src/**
-!/app/src/main/graphql/com/amazonaws/amplify/generated/graphql/**
-!/app/src/main/java/com/parthgulati/plasma/**
 
 
 .gradle
@@ -22,6 +16,7 @@
 .cxx
 
 #amplify
+amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/mock-data
