@@ -42,25 +42,30 @@ public class DonorsActivity extends AppCompatActivity {
                 ModelQuery.list(Donor.class, Donor.BLOOD_GROUP.eq(BloodType)),
                 response -> {
                     donors = new ArrayList<String>();
-                    for (Donor donor : response.getData()) {
+                    Log.i("INFO", response.toString());
+                    if(response!=null) {
+                        for (Donor donor : response.getData()) {
 
-                        if(donor!=null && donor.getName()!=null ) {
+                        if( donor.getName()!=null ) {
                             donors.add(donor.getName());
                         }
-                    }
+                        }
+                   }
+                   // runOnUiThread(() -> Toast.makeText(this, "No record found", Toast.LENGTH_SHORT).show());
+
                     if(donors.size()==0){
                         runOnUiThread(() -> Toast.makeText(this, "No record found", Toast.LENGTH_SHORT).show());
-                        runOnUiThread(()->super.onBackPressed());
+                       runOnUiThread(()->super.onBackPressed());
                     }
                     else{
                     //Log.i("INFO", donors.toString());
 
                     arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, donors);
                     //Log.i("INFO", donors.toString());
-                    runOnUiThread(() ->  listView.setAdapter(arrayAdapter));
+                        Intent intent = new Intent(getApplicationContext(), profileActivity.class);
+                   runOnUiThread(() ->  listView.setAdapter(arrayAdapter));
                         runOnUiThread(()->  listView.setOnItemClickListener((parent, view, position, id) -> {
                             username1 = donors.get(position);
-                            Intent intent = new Intent(getApplicationContext(), profileActivity.class);
                             startActivity(intent);
                         }));
                    }

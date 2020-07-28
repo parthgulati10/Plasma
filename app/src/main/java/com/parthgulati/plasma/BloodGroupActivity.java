@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.BloodGroupTypes;
@@ -71,12 +72,11 @@ public class BloodGroupActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter =  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bloodGroups);
         listView.setAdapter(arrayAdapter);
-
+        Intent intent = new Intent(getApplicationContext(), DonorsActivity.class);
         listView.setOnItemClickListener((parent, view, position, id) -> {
             String blood = bloodGroups.get(position);
             chosenBloodGroup = getBloodTypes(blood);
-            Intent intent = new Intent(getApplicationContext(), DonorsActivity.class);
-            startActivity(intent);
+            runOnUiThread(() -> startActivity(intent));
         });
     }
     @Override
